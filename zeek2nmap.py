@@ -40,11 +40,10 @@ if __name__ == '__main__':
         try:
             # take the range of ports to
             # be scanned
-            begin = 79
-            end = 81
+            begin = 1
+            end = 200
 
             # assign the target ip to be scanned to
-            # a variable
             target = line
 
             # instantiate a PortScanner object
@@ -64,10 +63,3 @@ if __name__ == '__main__':
             print(f'{line} is not reachable')
 
         print(json_data_list)
-        #jsonString = json.dumps(json_data_list, indent=4)
-        #print(jsonString)
-        #line = "help me"
-        #data_set = {""+line+"": [{i}, {res}]}
-        #json_dump = json.dumps(data_set)
-        #print(json_dump)
-
