@@ -40,8 +40,8 @@ if __name__ == '__main__':
         try:
             # take the range of ports to
             # be scanned
-            begin = 75
-            end = 80
+            begin = 50
+            end = 140
 
             # assign the target ip to be scanned to
             # a variable
