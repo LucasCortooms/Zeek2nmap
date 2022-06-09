@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
                 print(f'{line} port {i} is {res}.')
         except:
-            print("Host not reachable")
+            print("{line} is not reachable")
 
 
 
