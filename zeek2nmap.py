@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
             # assign the target ip to be scanned to
             # a variable
-            target = '127.0.0.1'
+            target = line
 
             # instantiate a PortScanner object
             scanner = nmap.PortScanner()
