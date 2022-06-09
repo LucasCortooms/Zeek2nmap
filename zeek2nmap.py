@@ -63,4 +63,4 @@ if __name__ == '__main__':
         #except:
             #print(f'{line} is not reachable')
 
-        print(json_data_list)
+        #print(json_data_list)
