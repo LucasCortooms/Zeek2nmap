@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # cut away quotes after IP ands store host IP's in array
     ip = []
     for line in cut:
-        if line not in ip:
+            ip = list(dict.fromkeys(ip))
             ip2 = line.split('"')
             ip.append(ip2[0])
     print(ip)
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     nm = nmap.PortScanner()
     for line in ip:
         try:
-            # take the range of ports to 
+            # take the range of ports to
             # be scanned
             begin = 75
             end = 80
@@ -50,10 +50,10 @@ if __name__ == '__main__':
                 # scan the target port
                 res = scanner.scan(target, str(i))
 
-                # the result is a dictionary containing 
+                # the result is a dictionary containing
                 # several information we only need to
                 # check if the port is opened or closed
-                # so we will access only that information 
+                # so we will access only that information
                 # in the dictionary
                 res = res['scan'][target]['tcp'][i]['state']
 
