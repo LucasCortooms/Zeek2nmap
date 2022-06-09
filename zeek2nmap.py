@@ -60,7 +60,7 @@ if __name__ == '__main__':
                         print("hellooo")
 
                 print(f'{line} port {i} is {res}.')
-        #except:
-            #print(f'{line} is not reachable')
+        except:
+            print(f'{line} is not reachable')
 
         #print(json_data_list)
