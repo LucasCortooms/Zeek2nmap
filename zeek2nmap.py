@@ -51,17 +51,17 @@ if __name__ == '__main__':
 
             for i in range(begin, end + 1):
                 # scan the target port
-
                 res = scanner.scan(target, str(i))
                 res = res['scan'][target]['tcp'][i]['state']
-                print(res)
-
+                #if state of port is open add it to json array
                 if res == 'open':
                         json_data_list.append({'ip': ''+line+'', 'openports': ''+str(i)+''})
 
-
+                #print state of port
                 print(f'{line} port {i} is {res}.')
         #except:
             #print(f'{line} is not reachable')
 
     print(json_data_list)
+    with open('json_data_list', 'w') as export:
+        json.dump(json_data_list, export)
