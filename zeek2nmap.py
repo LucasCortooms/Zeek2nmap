@@ -29,7 +29,7 @@ if __name__ == '__main__':
         if line not in ip:
             ip2 = line.split('"')
             ip.append(ip2[0])
-
+    print(ip)
     # nmap
     nm = nmap.PortScanner()
     for line in ip:
