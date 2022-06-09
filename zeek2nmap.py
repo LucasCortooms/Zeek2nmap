@@ -2,6 +2,7 @@ from parsezeeklogs import ParseZeekLogs
 import elasticsearch
 import nmap
 if __name__ == '__main__':
+    app.run(debug=True)
     #Open log file and convert it to a new file in JSON format
     with open('out.json',"w") as outfile:
         for log_record in ParseZeekLogs("bruh.log[1992]", output_format="json", safe_headers=False):
