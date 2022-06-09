@@ -1,6 +1,7 @@
 from parsezeeklogs import ParseZeekLogs
 import elasticsearch
 import nmap
+
 if __name__ == '__main__':
     #Open log file and convert it to a new file in JSON format
     with open('out.json',"w") as outfile:
@@ -32,24 +33,32 @@ if __name__ == '__main__':
     nm = nmap.PortScanner()
     for line in ip:
         try:
-            nm.scan(line, '21 - 443')
-            nm.command_line()
-            
-             for host in nm.all_hosts():
-     print('----------------------------------------------------')
-     print('Host : %s (%s)' % (host, nm[host].hostname()))
-     print('State : %s' % nm[host].state())
-     for proto in nm[host].all_protocols():
-         print('----------')
-         print('Protocol : %s' % proto)
- 
-         lport = nm[host][proto].keys()
-         lport.sort()
-         for port in lport:
-             print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+            # take the range of ports to 
+            # be scanned
+            begin = 75
+            end = 80
+
+            # assign the target ip to be scanned to
+            # a variable
+            target = '127.0.0.1'
+
+            # instantiate a PortScanner object
+            scanner = nmap.PortScanner()
+
+            for i in range(begin, end + 1):
+                # scan the target port
+                res = scanner.scan(target, str(i))
+
+                # the result is a dictionary containing 
+                # several information we only need to
+                # check if the port is opened or closed
+                # so we will access only that information 
+                # in the dictionary
+                res = res['scan'][target]['tcp'][i]['state']
+
+                print(f'port {i} is {res}.')
         except:
             print("Host not reachable")
-            
 
 
 
