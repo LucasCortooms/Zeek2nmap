@@ -26,10 +26,10 @@ if __name__ == '__main__':
     # cut away quotes after IP ands store host IP's in array
     ip = []
     for line in cut:
-            #ip = list(dict.fromkeys(ip))
             ip2 = line.split('"')
             ip.append(ip2[0])
     print(ip)
+    ip = list(dict.fromkeys(ip))
     # nmap
     nm = nmap.PortScanner()
     for line in ip:
