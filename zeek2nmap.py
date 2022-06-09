@@ -28,8 +28,9 @@ if __name__ == '__main__':
     for line in cut:
             ip2 = line.split('"')
             ip.append(ip2[0])
-    print(ip)
+            
     ip = list(dict.fromkeys(ip))
+    print(ip)
     # nmap
     nm = nmap.PortScanner()
     for line in ip:
