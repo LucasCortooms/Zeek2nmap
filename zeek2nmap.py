@@ -1,6 +1,7 @@
 from parsezeeklogs import ParseZeekLogs
 import elasticsearch
 import nmap
+import json
 
 if __name__ == '__main__':
     # Open log file and convert it to a new file in JSON format
@@ -26,10 +27,9 @@ if __name__ == '__main__':
     # cut away quotes after IP ands store host IP's in array
     ip = []
     for line in cut:
+            ip = list(dict.fromkeys(ip))
             ip2 = line.split('"')
             ip.append(ip2[0])
-            
-    ip = list(dict.fromkeys(ip))
     print(ip)
     # nmap
     nm = nmap.PortScanner()
@@ -62,5 +62,10 @@ if __name__ == '__main__':
         except:
             print(f'{line} is not reachable')
 
+        line = "help me"
+        data_set = {""+line+"": [{i}, {res}]}
 
+        json_dump = json.dumps(data_set)
+
+        print(json_dump)
 
