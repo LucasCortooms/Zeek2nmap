@@ -31,7 +31,7 @@ if __name__ == '__main__':
             ip2 = line.split('"')
             ip.append(ip2[0])
     #Now we have the adresses stored in the ip list :)
-
+    ip = list(dict.fromkeys(ip))
     #json list
     json_data_list = []
     for line in ip:
