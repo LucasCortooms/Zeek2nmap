@@ -27,10 +27,11 @@ if __name__ == '__main__':
     # cut away quotes after IP ands store host IP's in array
     ip = []
     for line in cut:
+            ip = list(dict.fromkeys(ip))
             ip2 = line.split('"')
             ip.append(ip2[0])
     #Now we have the adresses stored in the ip list :)
-    ip = list(dict.fromkeys(ip))
+
     #json list
     json_data_list = []
     for line in ip:
