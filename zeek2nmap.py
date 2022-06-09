@@ -40,8 +40,8 @@ if __name__ == '__main__':
         try:
             # take the range of ports to
             # be scanned
-            begin = 137
-            end = 145
+            begin = 135
+            end = 135
 
             # assign the target ip to be scanned to
             target = line
@@ -55,8 +55,8 @@ if __name__ == '__main__':
                 res = scanner.scan(target, str(i))
                 res = res['scan'][target]['tcp'][i]['state']
 
-                if res == 'open':
-                        json_data_list.append({'ip': ''+{line}+'', 'openports': ''+{i}+''})
+                #if res == 'open':
+                        #json_data_list.append({'ip': ''+{line}+'', 'openports': ''+{i}+''})
 
                 print(f'{line} port {i} is {res}.')
         except:
