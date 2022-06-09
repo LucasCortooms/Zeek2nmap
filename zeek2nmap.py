@@ -63,5 +63,5 @@ if __name__ == '__main__':
             #print(f'{line} is not reachable')
 
     print(json_data_list)
-    with open('json_data_list', 'w') as export:
-        json.dump(json_data_list, export)
+    with open('results.json', 'w') as f:
+        json.dump(json_data_list, f)
