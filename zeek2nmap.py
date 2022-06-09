@@ -31,12 +31,12 @@ if __name__ == '__main__':
             ip2 = line.split('"')
             ip.append(ip2[0])
     #Now we have the adresses stored in the ip list :)
-    
+
     #json list
     json_data_list = []
     for line in ip:
         # greyed out for troubleshooting
-        #try:
+        try:
             # take the range of ports to be scanned
             begin = 135
             end = 135
@@ -60,8 +60,8 @@ if __name__ == '__main__':
                 #print state of port
                 print(f'{line} port {i} is {res}.')
         #greyed out for troubleshooting
-        #except:
-            #print(f'{line} is not reachable')
+        except:
+            print(f'{line} is not reachable')
 
     print(json_data_list)
     #write the list which contains the open ports to a json file ready to be used by elkstack!
