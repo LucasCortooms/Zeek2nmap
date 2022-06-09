@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 # in the dictionary
                 res = res['scan'][target]['tcp'][i]['state']
 
-                print(f'port {i} is {res}.')
+                print(f'{line} port {i} is {res}.')
         except:
             print("Host not reachable")
 
