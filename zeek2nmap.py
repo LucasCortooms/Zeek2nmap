@@ -2,6 +2,7 @@ from parsezeeklogs import ParseZeekLogs
 import elasticsearch
 import nmap
 import json
+import test
 
 if __name__ == '__main__':
     # Open log file and convert it to a new file in JSON format
@@ -33,6 +34,8 @@ if __name__ == '__main__':
     print(ip)
     # nmap
     nm = nmap.PortScanner()
+    #json list
+    json_data_list = []
     for line in ip:
         try:
             # take the range of ports to
@@ -49,19 +52,20 @@ if __name__ == '__main__':
 
             for i in range(begin, end + 1):
                 # scan the target port
-                res = scanner.scan(target, str(i))
 
-                # the result is a dictionary containing
-                # several information we only need to
-                # check if the port is opened or closed
-                # so we will access only that information
-                # in the dictionary
+                res = scanner.scan(target, str(i))
                 res = res['scan'][target]['tcp'][i]['state']
+
+                if res == 'open':
+                        json_data_list.append({'ip': ''+{line}+'', 'openports': ''+{i}+''})
 
                 print(f'{line} port {i} is {res}.')
         except:
             print(f'{line} is not reachable')
 
+        print(json_data_list)
+        #jsonString = json.dumps(json_data_list, indent=4)
+        #print(jsonString)
         #line = "help me"
         #data_set = {""+line+"": [{i}, {res}]}
         #json_dump = json.dumps(data_set)
