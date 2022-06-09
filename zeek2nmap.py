@@ -55,15 +55,10 @@ if __name__ == '__main__':
                 res = scanner.scan(target, str(i))
                 res = res['scan'][target]['tcp'][i]['state']
                 print(res)
-                print(res[0])
-                print(res[1])
-                print(res[2])
-                print(res[3])
 
-
-                #if res['state'] == 'open':
+                if res == 'open':
                         #json_data_list.append({'ip': ''+{line}+'', 'openports': ''+{i}+''})
-                        #print("hellooo")
+                        print("hellooo")
 
                 print(f'{line} port {i} is {res}.')
         #except:
