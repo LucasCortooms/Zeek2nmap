@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 print(res)
 
                 if res == 'open':
-                        json_data_list.append({f'ip': ''+{line}+'', 'openports': ''+{i}+''})
+                        json_data_list.append({'ip': ''+line+'', 'openports': ''+i+''})
 
 
                 print(f'{line} port {i} is {res}.')
