@@ -62,10 +62,8 @@ if __name__ == '__main__':
         except:
             print(f'{line} is not reachable')
 
-        line = "help me"
-        data_set = {""+line+"": [{i}, {res}]}
-
-        json_dump = json.dumps(data_set)
-
-        print(json_dump)
+        #line = "help me"
+        #data_set = {""+line+"": [{i}, {res}]}
+        #json_dump = json.dumps(data_set)
+        #print(json_dump)
 
