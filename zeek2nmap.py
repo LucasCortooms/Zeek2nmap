@@ -88,17 +88,17 @@ if __name__ == '__main__':
     #except Exception as e:
     #       print(e)
 
-    def send_json_to_elk(file_name, index_name):
+    def send_json_to_elk(index_name):
         try:
-            with open(file_name) as fp:
+            with open("results.json") as fp:
                 for line in fp:
-                    line = line.replace("\n", "")
+                    #line = line.replace("\n", "")
                     #jdoc = {"data": json.loads(line)}
-                    es.index(index=index_name, body="results.json")
+                    es.index(index=index_name, body=line)
             print("Finished uploading: " + index_name)
         except Exception as e:
             print(e)
 
-    send_json_to_elk("results.json", "nmap")
+    send_json_to_elk("nmap")
 ########################################################################################################################
 
