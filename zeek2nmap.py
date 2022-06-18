@@ -68,8 +68,8 @@ if __name__ == '__main__':
     print(json_data_list)
     #write the list which contains the open ports to a json file ready to be used by elkstack!
     with open('results.json', 'w') as f:
-<<<<<<< HEAD
-        json.dump(json_data_list, f)
+
+        ndjson.dump(json_data_list, f)
 
     ####################################################################################################################
     es = Elasticsearch('192.168.1.110:9200')
@@ -86,8 +86,5 @@ if __name__ == '__main__':
             print(e)
 
     send_json_to_elk("results.json", "test")
-=======
-        ndjson.dump(json_data_list, f)
 ########################################################################################################################
 
->>>>>>> 07862e48ab1ee6b821cef512057d7178b80c1584
