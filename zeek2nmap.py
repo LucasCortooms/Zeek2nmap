@@ -80,7 +80,7 @@ if __name__ == '__main__':
     try:
         #with open("results.json") as fp:
             #for line in fp:
-        requests.post('http://192.168.1.110:9200',data="results.json"().read())
+        requests.post('http://192.168.1.110:9200',data="results.json")
     #                line = line.replace("\n", "")
     #                jdoc = {"data": json.loads(line)}
     #                es.index(index=index_name, doc_type='_doc', body=jdoc)
