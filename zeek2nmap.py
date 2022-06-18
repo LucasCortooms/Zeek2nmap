@@ -78,9 +78,9 @@ if __name__ == '__main__':
 
     #def send_json_to_elk(file_name, index_name):
     try:
-        with open("results.json") as fp:
-            for line in fp:
-                requests.post('http://192.168.1.110:9200',data="results.json"().read())
+        #with open("results.json") as fp:
+            #for line in fp:
+        requests.post('http://192.168.1.110:9200',data="results.json"().read())
     #                line = line.replace("\n", "")
     #                jdoc = {"data": json.loads(line)}
     #                es.index(index=index_name, doc_type='_doc', body=jdoc)
@@ -88,16 +88,16 @@ if __name__ == '__main__':
     except Exception as e:
            print(e)
 
-    def send_json_to_elk(file_name, index_name):
-        try:
-            with open(file_name) as fp:
-                for line in fp:
-                    line = line.replace("\n", "")
-                    jdoc = {"data": json.loads(line)}
-                    es.index(index=index_name, body=jdoc)
-            print("Finished uploading: " + index_name)
-        except Exception as e:
-            print(e)
+    #def send_json_to_elk(file_name, index_name):
+    #    try:
+    #        with open(file_name) as fp:
+    #            for line in fp:
+    #                line = line.replace("\n", "")
+    #                jdoc = {"data": json.loads(line)}
+    #                es.index(index=index_name, body=jdoc)
+    #        print("Finished uploading: " + index_name)
+    #    except Exception as e:
+    #        print(e)
 
     #send_json_to_elk("results.json", "test")
 ########################################################################################################################
