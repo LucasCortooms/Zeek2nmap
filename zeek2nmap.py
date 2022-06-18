@@ -8,7 +8,6 @@ import requests
 
 if __name__ == '__main__':
     path = '/home/user/Documents/known_hosts.11:00:00-12:00:00.log'
-    #path = '/usr/local/zeek/logs/2022-06-09/known_hosts.12:00:00-13:00:00.log.gz'
     # Open log file and convert it to a new file in JSON format
     with open('out.json', "w") as outfile:
         for log_record in ParseZeekLogs(path, output_format="json", safe_headers=False):
