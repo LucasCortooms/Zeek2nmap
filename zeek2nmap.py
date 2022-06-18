@@ -73,32 +73,19 @@ if __name__ == '__main__':
         ndjson.dump(json_data_list, f)
 
     ####################################################################################################################
+    #Define Elastic server address
     es = Elasticsearch('http://192.168.1.110:9200')
 
-
-    #def send_json_to_elk(file_name, index_name):
-    #try:
-        #with open("results.json") as fp:
-            #for line in fp:
-    #    requests.post('http://192.168.1.110:9200',data="results.json")
-    #                line = line.replace("\n", "")
-    #                jdoc = {"data": json.loads(line)}
-    #                es.index(index=index_name, doc_type='_doc', body=jdoc)
-    #        print("Finished uploading: " + index_name)
-    #except Exception as e:
-    #       print(e)
-
+    #send ndjson file to elastic
     def send_json_to_elk(index_name):
         try:
             with open("results.json") as fp:
                 for line in fp:
-                    #line = line.replace("\n", "")
-                    #jdoc = {"data": json.loads(line)}
                     es.index(index=index_name, body=line)
             print("Finished uploading: " + index_name)
         except Exception as e:
             print(e)
 
-    send_json_to_elk("bruh")
+    send_json_to_elk("ports")
 ########################################################################################################################
 
