@@ -2,6 +2,8 @@ from parsezeeklogs import ParseZeekLogs
 from elasticsearch import Elasticsearch
 import nmap
 import json
+import ndjson
+from io import StringIO
 
 if __name__ == '__main__':
     # Open log file and convert it to a new file in JSON format
@@ -66,6 +68,7 @@ if __name__ == '__main__':
     print(json_data_list)
     #write the list which contains the open ports to a json file ready to be used by elkstack!
     with open('results.json', 'w') as f:
+<<<<<<< HEAD
         json.dump(json_data_list, f)
 
     ####################################################################################################################
@@ -83,3 +86,8 @@ if __name__ == '__main__':
             print(e)
 
     send_json_to_elk("results.json", "test")
+=======
+        ndjson.dump(json_data_list, f)
+########################################################################################################################
+
+>>>>>>> 07862e48ab1ee6b821cef512057d7178b80c1584
