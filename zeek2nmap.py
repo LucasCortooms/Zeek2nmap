@@ -73,7 +73,7 @@ if __name__ == '__main__':
         ndjson.dump(json_data_list, f)
 
     ####################################################################################################################
-    es = Elasticsearch('https://192.168.1.110:9200')
+    es = Elasticsearch('http://192.168.1.110:9200')
 
 
     #def send_json_to_elk(file_name, index_name):
