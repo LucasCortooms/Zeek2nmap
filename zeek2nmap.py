@@ -80,7 +80,7 @@ if __name__ == '__main__':
                 for line in fp:
                     line = line.replace("\n", "")
                     jdoc = {"data": json.loads(line)}
-                    es.index(index=index_name, doc_type='_doc', body=jdoc)
+                    es.index(index=index_name, body=jdoc)
             print("Finished uploading: " + index_name)
         except Exception as e:
             print(e)
