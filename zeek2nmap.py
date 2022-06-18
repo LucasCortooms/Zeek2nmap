@@ -1,5 +1,5 @@
 from parsezeeklogs import ParseZeekLogs
-import elasticsearch
+from elasticsearch import Elasticsearch
 import nmap
 import json
 
@@ -67,3 +67,19 @@ if __name__ == '__main__':
     #write the list which contains the open ports to a json file ready to be used by elkstack!
     with open('results.json', 'w') as f:
         json.dump(json_data_list, f)
+
+    ####################################################################################################################
+    es = Elasticsearch('192.168.1.110:9200')
+
+    def send_json_to_elk(file_name, index_name):
+        try:
+            with open(file_name) as fp:
+                for line in fp:
+                    line = line.replace("\n", "")
+                    jdoc = {"data": json.loads(line)}
+                    es.index(index=index_name, doc_type='_doc', body=jdoc)
+            print("Finished uploading: " + index_name)
+        except Exception as e:
+            print(e)
+
+    send_json_to_elk("results.json", "test")
