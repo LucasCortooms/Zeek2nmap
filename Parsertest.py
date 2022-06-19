@@ -14,3 +14,15 @@ if __name__ == '__main__':
             if log_record is not None:
                 outfile.write(log_record + "\n")
 
+    #create array to store json data
+    res = []
+    # Put JSON file lines into array
+    with open('out.json', 'r') as fp:
+        for line in fp:
+            res.append(line.strip())
+
+    print(res[0])
+    print(res[1])
+    print(res[2])
+    print(res[3])
+    print(res[4])
