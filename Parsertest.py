@@ -21,9 +21,18 @@ if __name__ == '__main__':
         for line in fp:
             res.append(line.strip())
 
+    #filter out ipv6 by length
     res2 = []
     for ip in res:
         if len(ip) < 32:
             res2.append(ip)
 
     print(res2)
+
+    formatted = []
+    for ip in res2:
+        x = slice(15, 100)
+        y = ip[x]
+        formatted.append(y)
+
+    print(formatted)
