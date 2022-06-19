@@ -47,8 +47,8 @@ if __name__ == '__main__':
         # greyed out for troubleshooting
         try:
             # take the range of ports to be scanned
-            begin = 1
-            end = 100
+            begin = 9190
+            end = 9210
 
             #target == an IP from the ip list
             target = line
