@@ -27,15 +27,11 @@ if __name__ == '__main__':
         if len(ip) < 32:
             res2.append(ip)
 
-    print(res2)
-
     formatted = []
     for ip in res2:
         x = slice(15, 100)
         y = ip[x]
         formatted.append(y)
-
-    print(formatted)
 
     ip = []
     for line in formatted:
