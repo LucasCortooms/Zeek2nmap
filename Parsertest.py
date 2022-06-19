@@ -31,8 +31,16 @@ if __name__ == '__main__':
 
     formatted = []
     for ip in res2:
-        x = slice(16, 100)
+        x = slice(15, 100)
         y = ip[x]
         formatted.append(y)
 
     print(formatted)
+
+    ip = []
+    for line in formatted:
+            ip = list(dict.fromkeys(ip))
+            ip2 = line.split('"')
+            ip.append(ip2[0])
+
+    print(ip)
