@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     formatted = []
     for ip in res2:
-        x = slice(15, 100)
+        x = slice(16, 100)
         y = ip[x]
         formatted.append(y)
 
