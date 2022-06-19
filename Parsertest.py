@@ -21,8 +21,9 @@ if __name__ == '__main__':
         for line in fp:
             res.append(line.strip())
 
-    print(res[0])
-    print(res[1])
-    print(res[2])
-    print(res[3])
-    print(res[4])
+    res2 = []
+    for ip in res:
+        if len(ip) < 32:
+            res2.append(ip)
+
+    print(res2)
