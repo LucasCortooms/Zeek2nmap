@@ -21,20 +21,25 @@ if __name__ == '__main__':
         for line in fp:
             res.append(line.strip())
 
-    # cut away timestamp from lines on file
-    cut = []
-    for line in res:
-        x = slice(37, 100)
-        y = line[x]
-        cut.append(y)
+    #filter out ipv6 by length
+    res2 = []
+    for ip in res:
+        if len(ip) < 32:
+            res2.append(ip)
 
-    # cut away quotes after IP ands store host IP's in array
+    formatted = []
+    for ip in res2:
+        x = slice(15, 100)
+        y = ip[x]
+        formatted.append(y)
+
     ip = []
-    for line in cut:
+    for line in formatted:
             ip = list(dict.fromkeys(ip))
             ip2 = line.split('"')
             ip.append(ip2[0])
-    #Now we have the adresses stored in the ip list :)
+
+    print(ip)
 
     #json list
     json_data_list = []
