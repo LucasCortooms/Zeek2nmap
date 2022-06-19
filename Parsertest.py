@@ -13,5 +13,5 @@ if __name__ == '__main__':
         for log_record in ParseZeekLogs(path, output_format="json", safe_headers=False):
             if log_record is not None:
                 outfile.write(log_record + "\n")
-                for line in outfile:
+                for log_record in outfile:
                     print("id.orig_h")
